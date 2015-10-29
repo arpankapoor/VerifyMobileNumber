@@ -10,4 +10,6 @@
         Please confirm your country and enter your phone number.
     </string>
     <string name="title_activity_country_selector">Select your country</string>
+    <string name="enter_phone_number">Please enter a valid phone number</string>
+    <string name="verification_done">Verified</string>
 </resources>
