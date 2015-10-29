@@ -20,14 +20,14 @@ import io.github.arpankapoor.country.Country;
 
 public class CountrySelector extends AppCompatActivity {
 
-    private List<String> getCountryList() {
-        List<String> countries = new ArrayList<>();
+    private List<Country> getCountryList() {
+        List<Country> countries = new ArrayList<>();
 
         Set<String> supportedRegions = PhoneNumberUtil.getInstance().getSupportedRegions();
 
         for (String countryIso : supportedRegions) {
             Country country = new Country(countryIso);
-            countries.add(country.toString());
+            countries.add(country);
         }
 
         Collections.sort(countries);
@@ -46,7 +46,7 @@ public class CountrySelector extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String country = (String) parent.getItemAtPosition(position);
+                Country country = (Country) parent.getItemAtPosition(position);
 
                 Intent output = new Intent();
                 output.putExtra("country", country);
