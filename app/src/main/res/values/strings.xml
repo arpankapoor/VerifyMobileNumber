@@ -9,4 +9,5 @@
     <string name="confirm_country">
         Please confirm your country and enter your phone number.
     </string>
+    <string name="title_activity_country_selector">Select your country</string>
 </resources>
