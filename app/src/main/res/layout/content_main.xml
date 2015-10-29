@@ -25,8 +25,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="@string/select_country"
-        android:id="@+id/selectCountryTextView"
+        android:text="@string/confirm_country"
+        android:id="@+id/confirmCountryTextView"
         android:layout_below="@+id/carrierChargesTextView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
@@ -37,11 +37,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/countryButton"
-        android:layout_below="@+id/selectCountryTextView"
+        android:layout_below="@+id/confirmCountryTextView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:hint="@string/choose_country" />
 
     <EditText
         android:layout_width="wrap_content"
