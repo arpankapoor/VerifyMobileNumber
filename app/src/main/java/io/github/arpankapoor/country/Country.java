@@ -1,18 +1,22 @@
 package io.github.arpankapoor.country;
 
+import android.support.annotation.NonNull;
+
 import com.google.i18n.phonenumbers.PhoneNumberUtil;
 
+import java.io.Serializable;
 import java.util.Locale;
 
-public class Country {
+public class Country implements Comparable<Country>, Serializable {
+    private static final long serialVersionUID = 8116297477768564397L;
     private String name;
     private String isoCode;
     private int callingCode;
 
     public Country(String isoCode) {
-        this.isoCode = isoCode.toUpperCase();
-        this.name = new Locale("", this.isoCode).getDisplayCountry();
-        this.callingCode = PhoneNumberUtil.getInstance().getCountryCodeForRegion(this.isoCode);
+        setIsoCode(isoCode.toUpperCase());
+        setName(new Locale("", getIsoCode()).getDisplayCountry());
+        setCallingCode(PhoneNumberUtil.getInstance().getCountryCodeForRegion(getIsoCode()));
     }
 
     @Override
@@ -42,5 +46,10 @@ public class Country {
 
     public void setIsoCode(String isoCode) {
         this.isoCode = isoCode;
+    }
+
+    @Override
+    public int compareTo(@NonNull Country another) {
+        return this.name.compareTo(another.name);
     }
 }
