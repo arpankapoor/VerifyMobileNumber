@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Verify Mobile Number</string>
+    <string name="phone_number">phone number</string>
+    <string name="carrier_charges_warning">
+        %1$s will send a one time SMS message to verify your phone number.
+        Carrier SMS charges may apply.
+    </string>
+    <string name="select_country">
+        Please confirm your country and enter your phone number.
+    </string>
+</resources>
