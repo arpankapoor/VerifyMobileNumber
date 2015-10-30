@@ -1,4 +1,5 @@
 # What?
+
 A sample Android application for mobile number verification.
 
 # How?
@@ -8,9 +9,19 @@ A sample Android application for mobile number verification.
 
 # Features
 
-- Detect user's home country using [getSimCountryIso()](https://developer.android.com/reference/android/telephony/TelephonyManager.html#getSimCountryIso()).
-- Display list of countries with calling code using [libphonenumber](https://github.com/googlei18n/libphonenumber).
+- Detect user's home country using
+  [getSimCountryIso()](https://developer.android.com/reference/android/telephony/TelephonyManager.html#getSimCountryIso()).
+- Display list of countries with calling code using
+  [libphonenumber](https://github.com/googlei18n/libphonenumber).
 - Phone number validation using libphonenumber.
+- Save verified phone number into a
+  [SharedPreferences](https://developer.android.com/reference/android/content/SharedPreferences.html)
+  file.
+
+# APK
+
+Get a precompiled APK
+[here](https://github.com/arpankapoor/VerifyMobileNumber/releases).
 
 # Screenshots
 
