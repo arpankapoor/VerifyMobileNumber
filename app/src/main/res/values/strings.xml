@@ -13,4 +13,10 @@
     <string name="enter_phone_number">Please enter a valid phone number</string>
     <string name="verification_done">Verified</string>
     <string name="verifying">Verifying</string>
+
+    <string name="preference_file">io.github.arpankapoor.PREFERENCE_FILE</string>
+    <string name="saved_phone_number_key">phone_number</string>
+    <string name="verification_msg">
+        Hi! Your %1$s PIN is %2$s.
+    </string>
 </resources>

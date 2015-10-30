@@ -3,7 +3,7 @@ package io.github.arpankapoor.verifymobilenumber;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -23,15 +23,13 @@ import io.github.arpankapoor.country.Country;
 public class MainActivity extends AppCompatActivity {
 
     private static final int PICK_COUNTRY_REQUEST = 1;
-    private static final String IS_VERIFIED_PREFERENCE_KEY = "is_verified";
     private Button countryButton = null;
     private EditText phoneNumberEditText = null;
 
     private void setAppNameInCarrierWarningTextView() {
-        Resources resources = getResources();
         String carrierChargesWarning = String.format(
-                resources.getString(R.string.carrier_charges_warning),
-                resources.getString(R.string.app_name)
+                getString(R.string.carrier_charges_warning),
+                getString(R.string.app_name)
         );
 
         TextView carrierChargesTextView = (TextView) findViewById(R.id.carrierChargesTextView);
@@ -140,7 +138,8 @@ public class MainActivity extends AppCompatActivity {
                     } else {
                         Intent verificationIntent = new Intent(v.getContext(),
                                 VerificationActivity.class);
-                        verificationIntent.putExtra("phone_number", phoneNumber);
+                        verificationIntent.putExtra(getString(R.string.saved_phone_number_key),
+                                phoneNumber);
                         startActivity(verificationIntent);
                     }
                 }
@@ -155,13 +154,16 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        boolean isVerified = getPreferences(MODE_PRIVATE).
-                getBoolean(IS_VERIFIED_PREFERENCE_KEY, false);
+        SharedPreferences sharedPreferences = getSharedPreferences(
+                getString(R.string.preference_file), MODE_PRIVATE);
+        String phoneNumber = sharedPreferences.getString(
+                getString(R.string.saved_phone_number_key), null);
+        boolean isVerified = (phoneNumber != null);
 
         if (isVerified) {
             Intent verificationIntent = new Intent(this, VerificationActivity.class);
-            verificationIntent.putExtra(IS_VERIFIED_PREFERENCE_KEY, true);
             startActivity(verificationIntent);
+            finish();
         } else {
             setAppNameInCarrierWarningTextView();
             setCountryButtonTextFromSimCountry();
