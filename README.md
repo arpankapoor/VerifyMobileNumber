@@ -19,3 +19,7 @@ A sample Android application for mobile number verification.
 ![](./screenshots/3.png)
 ![](./screenshots/4.png)
 ![](./screenshots/5.png)
+
+# License
+
+This is free and unencumbered software released into the public domain.
