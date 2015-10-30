@@ -1,6 +1,7 @@
 package io.github.arpankapoor.verifymobilenumber;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -34,13 +35,13 @@ public class CountrySelector extends AppCompatActivity {
         return countries;
     }
 
-    private void setListView() {
+    private void setListView(List<Country> countries) {
         ListView listView = (ListView) findViewById(R.id.listView);
 
         listView.setAdapter(new ArrayAdapter<>(
                 this,
                 R.layout.textview_country_list,
-                getCountryList()
+                countries
         ));
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -64,6 +65,19 @@ public class CountrySelector extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        setListView();
+        new setListViewTask().execute();
+    }
+
+    private class setListViewTask extends AsyncTask<Void, Void, List<Country> > {
+
+        @Override
+        protected void onPostExecute(List<Country> countries) {
+            setListView(countries);
+        }
+
+        @Override
+        protected List<Country> doInBackground(Void... params) {
+            return getCountryList();
+        }
     }
 }
