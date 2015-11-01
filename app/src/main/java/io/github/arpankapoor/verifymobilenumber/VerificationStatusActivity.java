@@ -19,7 +19,7 @@ import android.widget.TextView;
 
 import java.util.Random;
 
-public class VerificationActivity extends AppCompatActivity {
+public class VerificationStatusActivity extends AppCompatActivity {
 
     private BroadcastReceiver smsReceiver = null;
     private String phoneNumber = null;
@@ -74,7 +74,7 @@ public class VerificationActivity extends AppCompatActivity {
 
                         // clear all the previous activities
                         Intent verifiedIntent = new Intent(context.getApplicationContext(),
-                                VerificationActivity.class);
+                                VerificationStatusActivity.class);
                         verifiedIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         verifiedIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         verifiedIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

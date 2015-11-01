@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity {
                         invalidPhoneNumberAlert(v);
                     } else {
                         Intent verificationIntent = new Intent(v.getContext(),
-                                VerificationActivity.class);
+                                VerificationStatusActivity.class);
                         verificationIntent.putExtra(getString(R.string.saved_phone_number_key),
                                 phoneNumber);
                         startActivity(verificationIntent);
@@ -161,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
         boolean isVerified = (phoneNumber != null);
 
         if (isVerified) {
-            Intent verificationIntent = new Intent(this, VerificationActivity.class);
+            Intent verificationIntent = new Intent(this, VerificationStatusActivity.class);
             startActivity(verificationIntent);
             finish();
         } else {

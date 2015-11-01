@@ -35,7 +35,7 @@
                 android:value="io.github.arpankapoor.verifymobilenumber.MainActivity" />
         </activity>
         <activity
-            android:name=".VerificationActivity"
+            android:name=".VerificationStatusActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
